@@ -6,26 +6,27 @@
 <title>2026 air 사업팀 Can Meeting — 축복</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600&family=IBM+Plex+Sans+KR:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=IBM+Plex+Sans+KR:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#4A4F57;
-    --bg-2:#434850;
-    --white:#F1F1ED;
-    --gold:#E3C173;
-    --muted:#A7ADB4;
-    --line:rgba(255,255,255,.13);
+    --paper:#F7F3EA;
+    --paper-2:#EDE6D8;
+    --ink:#32373E;
+    --ink-soft:#71767E;
+    --line:rgba(50,55,62,.15);
+    --gold:#A07C33;
     --red:#C4695B;
+    --dark:#282C33;
     --latin:"Jost", sans-serif;
     --kr:"IBM Plex Sans KR", system-ui, sans-serif;
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;background:var(--dark);}
   body{
     margin:0;
-    background:var(--bg);
-    color:var(--white);
+    background:var(--paper);
+    color:var(--ink);
     font-family:var(--kr);
     font-weight:300;
     line-height:1.78;
@@ -33,110 +34,138 @@
   }
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:2;
-    opacity:.05;
+    opacity:.045;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .wrap{max-width:700px;margin:0 auto;padding:0 26px;position:relative;z-index:1;}
 
-  /* ---------- 포스터 ---------- */
-  .poster{text-align:center;padding:76px 0 22px;}
+  /* ---------- 포스터 (짙은 면) ---------- */
+  .poster{
+    text-align:center;padding:76px 0 56px;position:relative;
+    color:#F1F1ED;
+    --gold:#E3C173;
+  }
+  .poster::before{
+    content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:100vw;height:100%;z-index:-1;
+    background:var(--dark);
+  }
 
-  .year{
-    font-family:var(--latin);font-weight:300;
-    font-size:1.32rem;letter-spacing:.34em;
-    margin:0 0 14px;text-indent:.34em;
-  }
-  .team{
-    font-family:var(--latin);font-weight:600;
-    font-size:clamp(1.7rem,6.4vw,2.5rem);
-    letter-spacing:.13em;margin:0 0 12px;text-indent:.13em;
-  }
-  .kind{
-    font-family:var(--latin);font-weight:300;
-    font-size:clamp(1.15rem,4vw,1.6rem);
-    letter-spacing:.3em;margin:0;text-indent:.3em;
-  }
+  .year{font-family:var(--latin);font-weight:300;font-size:1.32rem;letter-spacing:.34em;margin:0 0 14px;text-indent:.34em;}
+  .team{font-family:var(--latin);font-weight:600;font-size:clamp(1.7rem,6.4vw,2.5rem);letter-spacing:.13em;margin:0 0 12px;text-indent:.13em;}
+  .kind{font-family:var(--latin);font-weight:300;font-size:clamp(1.15rem,4vw,1.6rem);letter-spacing:.3em;margin:0;text-indent:.3em;}
 
   .key{
     color:var(--gold);font-weight:200;
     font-size:clamp(2.4rem,9vw,3.5rem);
-    letter-spacing:.22em;
-    margin:56px 0 20px;text-indent:.22em;
+    letter-spacing:.22em;margin:56px 0 20px;text-indent:.22em;
   }
-  .sub{color:var(--muted);font-size:.98rem;letter-spacing:.02em;margin:0 0 8px;}
+  .sub{color:#A7ADB4;font-size:.98rem;letter-spacing:.02em;margin:0 0 8px;}
 
   .art{display:block;width:100%;max-width:520px;margin:8px auto 0;}
+
+  .bird{
+    transform-box:view-box;
+    transform-origin:300px 241px;
+    animation:birdbob 6s ease-in-out infinite;
+  }
+  @keyframes birdbob{
+    0%,  100%{transform:translate(300px,232px) rotate(0deg);}
+    7%      {transform:translate(300px,229px) rotate(-5deg);}
+    14%     {transform:translate(300px,232px) rotate(0deg);}
+    48%     {transform:translate(300px,232px) rotate(0deg);}
+    55%     {transform:translate(300px,230px) rotate(6deg);}
+    63%     {transform:translate(300px,232px) rotate(0deg);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .bird{animation:none;}
+    html{scroll-behavior:auto;}
+  }
 
   .when{font-family:var(--latin);font-weight:400;font-size:.94rem;letter-spacing:.09em;margin:24px 0 0;}
   .when small{font-size:.72em;letter-spacing:.06em;}
   .when b{font-weight:600;letter-spacing:.05em;}
-  .where{font-size:.9rem;color:var(--muted);margin:8px 0 0;letter-spacing:.03em;}
+  .where{font-size:.9rem;color:#A7ADB4;margin:8px 0 0;letter-spacing:.03em;}
 
-  /* ---------- 섹션 ---------- */
+  /* ---------- 본문 (밝은 면) ---------- */
   section{padding:58px 0;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
   h2{
-    font-family:var(--latin);font-weight:400;
-    font-size:.86rem;letter-spacing:.28em;
+    font-family:var(--latin);font-weight:600;
+    font-size:.9rem;letter-spacing:.26em;
     color:var(--gold);margin:0 0 30px;text-indent:.28em;
   }
 
+  .greet{margin:0 0 36px;max-width:34em;}
+  .greet p{margin:0 0 14px;font-size:1rem;line-height:1.9;}
+  .greet p:last-child{margin-bottom:0;color:var(--ink-soft);}
+
   .facts{display:grid;gap:20px;margin:0;}
   .fact{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:baseline;}
-  .fact dt{color:var(--muted);font-size:.85rem;letter-spacing:.05em;}
+  .fact dt{color:var(--ink-soft);font-size:.85rem;letter-spacing:.05em;}
   .fact dd{margin:0;font-size:1.02rem;font-weight:400;}
-  .fact dd small{display:block;color:var(--muted);font-size:.87rem;font-weight:300;margin-top:2px;}
+  .fact dd small{display:block;color:var(--ink-soft);font-size:.87rem;font-weight:300;margin-top:2px;}
 
   .tl{position:relative;margin:0;padding:0;list-style:none;}
   .tl::before{content:"";position:absolute;left:5px;top:12px;bottom:14px;width:1px;background:var(--line);}
   .tl li{position:relative;padding:0 0 24px 32px;}
   .tl li::before{
     content:"";position:absolute;left:0;top:12px;width:11px;height:11px;
-    border-radius:50%;background:var(--bg);border:1px solid rgba(255,255,255,.28);
+    border-radius:50%;background:var(--paper);border:1px solid rgba(50,55,62,.28);
   }
   .tl li.key-row::before{background:var(--gold);border-color:var(--gold);}
   .tl time{display:block;font-family:var(--latin);font-size:.83rem;color:var(--gold);letter-spacing:.07em;margin-bottom:1px;}
   .tl b{font-weight:400;font-size:1.01rem;}
 
-  .lead{color:var(--muted);margin:0 0 26px;font-size:.96rem;}
+  .lead{color:var(--ink-soft);margin:0 0 26px;font-size:.96rem;}
   .acts{margin:0;padding:0;list-style:none;counter-reset:a;}
   .acts li{
     counter-increment:a;display:grid;grid-template-columns:34px 1fr;gap:14px;
     padding:20px 0;border-top:1px solid var(--line);
   }
-  .acts li::before{
-    content:counter(a);font-family:var(--latin);font-size:1.1rem;
-    color:var(--gold);opacity:.75;line-height:1.7;
-  }
+  .acts li::before{content:counter(a);font-family:var(--latin);font-size:1.1rem;color:var(--gold);line-height:1.7;}
   .acts h3{margin:0 0 5px;font-size:1.02rem;font-weight:500;}
-  .acts p{margin:0;color:var(--muted);font-size:.94rem;}
-  .acts .eg{display:block;margin-top:7px;font-size:.87rem;color:var(--gold);opacity:.85;}
+  .acts p{margin:0;color:var(--ink-soft);font-size:.94rem;}
+  .acts .eg{display:block;margin-top:7px;font-size:.87rem;color:var(--gold);}
 
-  .teaser{margin-top:30px;padding:20px 24px;background:var(--bg-2);border-left:2px solid var(--red);}
+  .places{margin:0;padding:0;list-style:none;}
+  .places li{padding:18px 0;border-top:1px solid var(--line);}
+  .places li:first-child{border-top:none;padding-top:0;}
+  .places .pname{font-size:1.02rem;font-weight:500;margin:0 0 3px;}
+  .places .paddr{margin:0 0 8px;font-size:.88rem;color:var(--ink-soft);}
+  .places a{
+    display:inline-block;font-size:.86rem;color:var(--gold);
+    text-decoration:none;border-bottom:1px solid rgba(160,124,51,.4);
+    padding-bottom:1px;
+  }
+  .places a:hover{border-bottom-color:var(--gold);}
+
+  .teaser{margin-top:30px;padding:20px 24px;background:var(--paper-2);border-left:2px solid var(--red);}
   .teaser p{margin:0;font-size:.95rem;}
-  .teaser p+p{margin-top:5px;color:var(--muted);font-size:.9rem;}
+  .teaser p+p{margin-top:5px;color:var(--ink-soft);font-size:.9rem;}
 
-  .ask p{margin:0 0 22px;color:var(--muted);max-width:34em;}
+  .ask p{margin:0 0 22px;color:var(--ink-soft);max-width:34em;}
   .btn{
-    display:inline-block;background:var(--gold);color:#3A3E45;
-    text-decoration:none;font-weight:500;font-size:.95rem;letter-spacing:.03em;
+    display:inline-block;background:var(--dark);color:#E3C173;
+    text-decoration:none;font-weight:400;font-size:.95rem;letter-spacing:.03em;
     padding:14px 32px;transition:background .18s ease;
   }
-  .btn:hover,.btn:focus-visible{background:#EFD08A;}
+  .btn:hover,.btn:focus-visible{background:#3A3F47;}
   .due{margin-top:15px;font-size:.87rem;color:var(--red);}
 
-  footer{border-top:1px solid var(--line);padding:40px 0 72px;font-size:.91rem;color:var(--muted);}
-  footer .bring b{font-weight:500;color:var(--white);}
+  footer{border-top:1px solid var(--line);padding:40px 0 72px;font-size:.91rem;color:var(--ink-soft);}
+  footer .bring b{font-weight:500;color:var(--ink);}
   footer .close{
     font-family:var(--latin);font-size:.84rem;letter-spacing:.26em;
     color:var(--gold);margin:30px 0 0;text-indent:.26em;
   }
 
-  a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  a:focus-visible{outline:2px solid var(--red);outline-offset:3px;}
 
   @media (max-width:640px){
     .wrap{padding:0 20px;}
-    .poster{padding:52px 0 14px;}
+    .poster{padding:52px 0 44px;}
     .key{margin:40px 0 16px;}
     section{padding:46px 0;}
     .fact{grid-template-columns:56px 1fr;gap:12px;}
@@ -174,80 +203,124 @@
       </defs>
 
       <g clip-path="url(#stage)">
+        <!-- 배경 -->
         <rect x="100" y="240" width="400" height="360" fill="url(#sky)"/>
-        <g fill="#EDEEF0" opacity=".9">
-          <ellipse cx="215" cy="340" rx="34" ry="13"/>
-          <ellipse cx="238" cy="333" rx="22" ry="11"/>
-          <ellipse cx="410" cy="368" rx="38" ry="14"/>
-          <ellipse cx="386" cy="361" rx="23" ry="11"/>
+        <g fill="#EDEEF0" opacity=".55">
+          <ellipse cx="186" cy="330" rx="30" ry="11"/>
+          <ellipse cx="208" cy="324" rx="19" ry="9"/>
+          <ellipse cx="424" cy="352" rx="32" ry="12"/>
+          <ellipse cx="402" cy="346" rx="20" ry="9"/>
         </g>
+        <path d="M100,506 C200,494 400,494 500,506 L500,600 L100,600 Z" fill="#87A26E"/>
+        <path d="M100,532 C220,520 380,520 500,532 L500,600 L100,600 Z" fill="#7B9765" opacity=".5"/>
 
-        <path d="M100,432 L182,352 L246,432 Z" fill="#5A7268"/>
-        <path d="M182,352 L200,369 L182,376 L166,367 Z" fill="#E8EBEA"/>
-        <path d="M212,432 L300,338 L392,432 Z" fill="#46605A"/>
-        <path d="M300,338 L322,360 L300,368 L280,358 Z" fill="#EDEFEE"/>
-        <path d="M356,432 L432,358 L500,432 Z" fill="#5A7268"/>
-        <path d="M432,358 L448,373 L432,380 L418,371 Z" fill="#E8EBEA"/>
-
-        <rect x="100" y="424" width="400" height="42" fill="url(#lake)"/>
-        <g fill="#FFFFFF" opacity=".95">
-          <ellipse cx="246" cy="446" rx="9" ry="5"/>
-          <path d="M252,443 q4,-9 8,-3 q-2,3 -5,4 Z"/>
-          <ellipse cx="268" cy="452" rx="7" ry="4"/>
-          <path d="M273,449 q3,-7 7,-2 q-2,2 -5,3 Z"/>
-        </g>
-
-        <path d="M100,462 C200,450 400,450 500,462 L500,600 L100,600 Z" fill="#87A26E"/>
-        <path d="M100,492 C220,478 380,478 500,492 L500,600 L100,600 Z" fill="#7B9765" opacity=".55"/>
-
-        <g fill="#3F5B4B">
-          <path d="M138,472 L156,398 L174,472 Z"/><rect x="153" y="470" width="6" height="16"/>
-          <path d="M170,486 L186,424 L202,486 Z"/><rect x="183" y="484" width="6" height="14"/>
-          <path d="M398,486 L414,424 L430,486 Z"/><rect x="411" y="484" width="6" height="14"/>
-          <path d="M426,472 L444,398 L462,472 Z"/><rect x="441" y="470" width="6" height="16"/>
-        </g>
-
+        <!-- 큰 꽃다발 -->
         <g>
-          <g stroke="#5E7F55" stroke-width="3" stroke-linecap="round" fill="none">
-            <path d="M300,516 C298,494 296,478 294,462"/>
-            <path d="M300,516 C306,496 312,480 318,466"/>
-            <path d="M300,516 C294,496 288,482 282,468"/>
+          <!-- 잎사귀 -->
+          <g fill="#4E7A4B">
+            <path d="M300,470 C240,436 200,392 194,352 C232,364 274,404 300,462 Z"/>
+            <path d="M300,470 C360,436 400,392 406,352 C368,364 326,404 300,462 Z"/>
+            <path d="M300,470 C284,404 286,336 300,290 C316,338 316,406 300,470 Z"/>
           </g>
-          <g fill="#5E8A57">
-            <path d="M262,452 C242,442 234,424 240,414 C254,418 266,432 268,450 Z"/>
-            <path d="M338,452 C358,442 366,424 360,414 C346,418 334,432 332,450 Z"/>
-            <path d="M300,404 C292,386 296,368 306,362 C314,374 314,392 306,406 Z"/>
+          <g fill="#6E9A63">
+            <path d="M300,470 C258,424 232,382 230,346 C262,362 292,410 300,466 Z"/>
+            <path d="M300,470 C342,424 368,382 370,346 C338,362 308,410 300,466 Z"/>
+            <path d="M300,472 C246,466 202,446 182,420 C218,414 268,434 300,466 Z"/>
+            <path d="M300,472 C354,466 398,446 418,420 C382,414 332,434 300,466 Z"/>
           </g>
-          <path d="M300,522 L258,462 C280,450 320,450 342,462 Z" fill="#E7E0D2"/>
-          <path d="M300,522 L258,462 C270,456 284,452 300,451 Z" fill="#D6CDBB"/>
-          <path d="M280,478 C292,483 308,483 320,478" stroke="#C4695B" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <path d="M280,478 C272,470 268,482 276,486 Z" fill="#C4695B"/>
-          <path d="M320,478 C328,470 332,482 324,486 Z" fill="#C4695B"/>
+          <!-- 안개꽃 -->
+          <g fill="#EFE9DC" opacity=".9">
+            <circle cx="206" cy="330" r="4"/><circle cx="220" cy="316" r="3"/><circle cx="196" cy="352" r="3.4"/>
+            <circle cx="394" cy="330" r="4"/><circle cx="380" cy="316" r="3"/><circle cx="404" cy="352" r="3.4"/>
+            <circle cx="300" cy="272" r="4"/><circle cx="278" cy="286" r="3"/><circle cx="322" cy="286" r="3"/>
+            <circle cx="184" cy="404" r="3.4"/><circle cx="416" cy="404" r="3.4"/>
+            <circle cx="246" cy="296" r="3"/><circle cx="354" cy="296" r="3"/>
+          </g>
+
+          <!-- 포장지 -->
+          <path d="M300,566 L226,462 C272,442 328,442 374,462 Z" fill="#E7E0D2"/>
+          <path d="M300,566 L226,462 C248,452 274,446 300,444 Z" fill="#D6CDBB"/>
+          <path d="M300,566 L338,502 L374,462 C356,454 338,449 320,446 Z" fill="#F1ECE1" opacity=".7"/>
+
+          <!-- 리본 -->
+          <path d="M262,494 C286,504 314,504 338,494" stroke="#C4695B" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M262,494 C248,482 240,500 254,506 Z" fill="#C4695B"/>
+          <path d="M338,494 C352,482 360,500 346,506 Z" fill="#C4695B"/>
+          <path d="M296,502 l-10,26 l10,-6 l10,6 Z" fill="#B25E51"/>
+
+          <!-- 꽃 -->
           <g>
-            <circle cx="300" cy="432" r="15" fill="#D9808F"/><circle cx="300" cy="432" r="6" fill="#F0C9CE"/>
-            <circle cx="266" cy="440" r="13" fill="#EFE9DC"/><circle cx="266" cy="440" r="5" fill="#E3C173"/>
-            <circle cx="334" cy="440" r="13" fill="#E3C173"/><circle cx="334" cy="440" r="5" fill="#B99B4E"/>
-            <circle cx="282" cy="410" r="12" fill="#9B8CB4"/><circle cx="282" cy="410" r="4.5" fill="#D6CCE3"/>
-            <circle cx="320" cy="408" r="12" fill="#EFE9DC"/><circle cx="320" cy="408" r="4.5" fill="#D9808F"/>
-            <circle cx="300" cy="388" r="11" fill="#C4695B"/><circle cx="300" cy="388" r="4" fill="#EABDB2"/>
+            <!-- 장미 -->
+            <g><circle cx="300" cy="344" r="26" fill="#D9808F"/><circle cx="300" cy="344" r="17" fill="#E9A2AC"/><circle cx="300" cy="344" r="8" fill="#F4CFD4"/></g>
+            <g><circle cx="238" cy="392" r="21" fill="#C4695B"/><circle cx="238" cy="392" r="13" fill="#DA9084"/><circle cx="238" cy="392" r="6" fill="#EFC3B9"/></g>
+            <g><circle cx="362" cy="392" r="21" fill="#C4695B"/><circle cx="362" cy="392" r="13" fill="#DA9084"/><circle cx="362" cy="392" r="6" fill="#EFC3B9"/></g>
+            <g><circle cx="300" cy="424" r="19" fill="#D9808F"/><circle cx="300" cy="424" r="11" fill="#E9A2AC"/><circle cx="300" cy="424" r="5" fill="#F4CFD4"/></g>
+
+            <!-- 데이지 -->
+            <g fill="#EFE9DC">
+              <g transform="translate(248,326)">
+                <ellipse cx="0" cy="-14" rx="6" ry="11"/><ellipse cx="12" cy="-7" rx="6" ry="11" transform="rotate(60 12 -7)"/>
+                <ellipse cx="12" cy="7" rx="6" ry="11" transform="rotate(120 12 7)"/><ellipse cx="0" cy="14" rx="6" ry="11"/>
+                <ellipse cx="-12" cy="7" rx="6" ry="11" transform="rotate(60 -12 7)"/><ellipse cx="-12" cy="-7" rx="6" ry="11" transform="rotate(120 -12 -7)"/>
+                <circle cx="0" cy="0" r="7" fill="#E3C173"/>
+              </g>
+              <g transform="translate(352,326)">
+                <ellipse cx="0" cy="-14" rx="6" ry="11"/><ellipse cx="12" cy="-7" rx="6" ry="11" transform="rotate(60 12 -7)"/>
+                <ellipse cx="12" cy="7" rx="6" ry="11" transform="rotate(120 12 7)"/><ellipse cx="0" cy="14" rx="6" ry="11"/>
+                <ellipse cx="-12" cy="7" rx="6" ry="11" transform="rotate(60 -12 7)"/><ellipse cx="-12" cy="-7" rx="6" ry="11" transform="rotate(120 -12 -7)"/>
+                <circle cx="0" cy="0" r="7" fill="#E3C173"/>
+              </g>
+              <g transform="translate(214,438) scale(.82)">
+                <ellipse cx="0" cy="-14" rx="6" ry="11"/><ellipse cx="12" cy="-7" rx="6" ry="11" transform="rotate(60 12 -7)"/>
+                <ellipse cx="12" cy="7" rx="6" ry="11" transform="rotate(120 12 7)"/><ellipse cx="0" cy="14" rx="6" ry="11"/>
+                <ellipse cx="-12" cy="7" rx="6" ry="11" transform="rotate(60 -12 7)"/><ellipse cx="-12" cy="-7" rx="6" ry="11" transform="rotate(120 -12 -7)"/>
+                <circle cx="0" cy="0" r="7" fill="#E3C173"/>
+              </g>
+              <g transform="translate(386,438) scale(.82)">
+                <ellipse cx="0" cy="-14" rx="6" ry="11"/><ellipse cx="12" cy="-7" rx="6" ry="11" transform="rotate(60 12 -7)"/>
+                <ellipse cx="12" cy="7" rx="6" ry="11" transform="rotate(120 12 7)"/><ellipse cx="0" cy="14" rx="6" ry="11"/>
+                <ellipse cx="-12" cy="7" rx="6" ry="11" transform="rotate(60 -12 7)"/><ellipse cx="-12" cy="-7" rx="6" ry="11" transform="rotate(120 -12 -7)"/>
+                <circle cx="0" cy="0" r="7" fill="#E3C173"/>
+              </g>
+            </g>
+
+            <!-- 금색 꽃 -->
+            <g><circle cx="204" cy="378" r="17" fill="#E3C173"/><circle cx="204" cy="378" r="9" fill="#EFD9A4"/><circle cx="204" cy="378" r="4" fill="#B99B4E"/></g>
+            <g><circle cx="396" cy="378" r="17" fill="#E3C173"/><circle cx="396" cy="378" r="9" fill="#EFD9A4"/><circle cx="396" cy="378" r="4" fill="#B99B4E"/></g>
+            <g><circle cx="268" cy="452" r="15" fill="#E3C173"/><circle cx="268" cy="452" r="8" fill="#EFD9A4"/><circle cx="268" cy="452" r="3.5" fill="#B99B4E"/></g>
+            <g><circle cx="332" cy="452" r="15" fill="#E3C173"/><circle cx="332" cy="452" r="8" fill="#EFD9A4"/><circle cx="332" cy="452" r="3.5" fill="#B99B4E"/></g>
+
+            <!-- 보라 꽃 -->
+            <g><circle cx="262" cy="366" r="15" fill="#9B8CB4"/><circle cx="262" cy="366" r="7" fill="#CFC5DF"/></g>
+            <g><circle cx="338" cy="366" r="15" fill="#9B8CB4"/><circle cx="338" cy="366" r="7" fill="#CFC5DF"/></g>
+            <g><circle cx="300" cy="466" r="13" fill="#9B8CB4"/><circle cx="300" cy="466" r="6" fill="#CFC5DF"/></g>
+
+            <!-- 튤립 봉오리 -->
+            <g fill="#D9808F">
+              <path d="M300,286 C288,296 286,312 292,322 C296,326 304,326 308,322 C314,312 312,296 300,286 Z"/>
+              <path d="M226,344 C214,354 212,370 218,380 C222,384 230,384 234,380 C240,370 238,354 226,344 Z"/>
+              <path d="M374,344 C362,354 360,370 366,380 C370,384 378,384 382,380 C388,370 386,354 374,344 Z"/>
+            </g>
+            <g fill="#C4695B" opacity=".55">
+              <path d="M300,286 C296,298 296,312 300,324 C304,312 304,298 300,286 Z"/>
+              <path d="M226,344 C222,356 222,370 226,382 C230,370 230,356 226,344 Z"/>
+              <path d="M374,344 C370,356 370,370 374,382 C378,370 378,356 374,344 Z"/>
+            </g>
           </g>
         </g>
 
+        <!-- 작은 것들 -->
         <g>
-          <ellipse cx="196" cy="546" rx="15" ry="4" fill="#6E8A5C" opacity=".5"/>
-          <path d="M188,546 q8,-22 16,0 Z" fill="#C4695B"/><rect x="194" y="544" width="5" height="9" fill="#EFE9DC"/>
-          <path d="M206,548 q6,-16 12,0 Z" fill="#C4695B"/><rect x="210" y="546" width="4" height="7" fill="#EFE9DC"/>
+          <path d="M150,556 q9,-24 18,0 Z" fill="#C4695B"/><rect x="156" y="554" width="6" height="10" fill="#EFE9DC"/>
+          <path d="M170,558 q7,-18 14,0 Z" fill="#C4695B"/><rect x="175" y="556" width="4" height="8" fill="#EFE9DC"/>
           <g fill="#EFE9DC">
-            <ellipse cx="242" cy="540" rx="11" ry="9"/><circle cx="252" cy="531" r="6"/>
-            <ellipse cx="250" cy="521" rx="2.2" ry="6"/><ellipse cx="255" cy="522" rx="2.2" ry="6"/>
+            <ellipse cx="428" cy="552" rx="14" ry="9"/><circle cx="440" cy="543" r="6"/>
+            <path d="M445,542 l7,3 l-7,2 Z" fill="#E3C173"/>
           </g>
           <g fill="#EFE9DC">
-            <ellipse cx="392" cy="540" rx="14" ry="9"/><circle cx="404" cy="531" r="6"/>
-            <path d="M409,530 l7,3 l-7,2 Z" fill="#E3C173"/>
+            <ellipse cx="196" cy="576" rx="11" ry="8"/><circle cx="206" cy="568" r="5.5"/>
+            <ellipse cx="204" cy="559" rx="2" ry="5.5"/><ellipse cx="209" cy="560" rx="2" ry="5.5"/>
           </g>
-          <rect x="286" y="548" width="46" height="16" rx="2" fill="#EFE9DC"/>
-          <rect x="286" y="552" width="46" height="3" fill="#E3C173"/>
-          <rect x="286" y="559" width="46" height="3" fill="#E3C173"/>
         </g>
       </g>
 
@@ -278,26 +351,31 @@
       <circle cx="184" cy="291" r="9" fill="#E3C173"/>
       <circle cx="416" cy="291" r="9" fill="#E3C173"/>
 
-      <g transform="translate(300,232)">
+      <g class="bird" transform="translate(300,232)">
         <ellipse cx="0" cy="0" rx="17" ry="9" fill="#F4F4F1"/>
         <path d="M-16,-2 q10,-8 20,-2 q-8,6 -20,2 Z" fill="#D6D8D9"/>
         <circle cx="12" cy="-8" r="6.5" fill="#F4F4F1"/>
-        <circle cx="14" cy="-9" r="1.2" fill="#4A4F57"/>
+        <circle cx="14" cy="-9" r="1.2" fill="#2C3038"/>
         <path d="M18,-8 l8,2 l-8,3 Z" fill="#E3C173"/>
       </g>
     </svg>
 
     <p class="when"><b>2026.10.01</b><small>THU</small> &nbsp;10:00 – 19:00</p>
-    <p class="where">소월타워 집합 · 남대문 꽃시장 → 후암별장</p>
+    <p class="where">남산 소월타워 집합 · 남대문 꽃시장 → 후암별장</p>
   </header>
 
   <section>
     <h2>Information</h2>
+    <div class="greet">
+      <p>안녕하세요, air사업팀 여러분.<br>air가 출시한 지 벌써 1주년이 다가오고 있습니다.</p>
+      <p>이번 캔미팅은 꽃시장에서 꽃다발을 만들며 팀의 1주년을 축하하는 자리입니다. 그리고 하루의 끝에는, 우리가 어떤 팀이 되고 싶은지(비전) 그리고 무엇을 해내는 팀인지(미션)를 각자의 언어로 꺼내 맞춰보려 합니다.</p>
+      <p>정답을 정해놓은 자리는 아닙니다. 편한 마음으로 오세요 :)</p>
+    </div>
     <dl class="facts">
       <div class="fact"><dt>일시</dt>
         <dd>2026년 10월 1일(목) 10:00 – 19:00
           <small>이후 저녁 뒤풀이 22:00까지, 자율 참석</small></dd></div>
-      <div class="fact"><dt>집합</dt><dd>10:00 소월타워 앞</dd></div>
+      <div class="fact"><dt>집합</dt><dd>10:00 남산 소월타워 앞</dd></div>
       <div class="fact"><dt>장소</dt>
         <dd>남대문 꽃시장 → 후암별장
           <small>도보로 이동합니다. 편한 복장과 신발을 권해요.</small></dd></div>
@@ -305,9 +383,30 @@
   </section>
 
   <section>
+    <h2>Places</h2>
+    <ol class="places">
+      <li>
+        <p class="pname">남산 소월타워</p>
+        <p class="paddr">서울 중구 남대문로5가 267</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%9C%EC%9A%B8%20%EC%A4%91%EA%B5%AC%20%EB%82%A8%EB%8C%80%EB%AC%B8%EB%A1%9C5%EA%B0%80%20267" target="_blank" rel="noopener">지도에서 보기</a>
+      </li>
+      <li>
+        <p class="pname">남대문 꽃시장</p>
+        <p class="paddr">서울 중구 회현동 남대문시장4길 21, 3층</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%9C%EC%9A%B8%20%EC%A4%91%EA%B5%AC%20%EB%82%A8%EB%8C%80%EB%AC%B8%EC%8B%9C%EC%9E%A54%EA%B8%B8%2021" target="_blank" rel="noopener">지도에서 보기</a>
+      </li>
+      <li>
+        <p class="pname">후암별장</p>
+        <p class="paddr">서울 용산구 후암로49길 7-6, 2층</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%9C%EC%9A%B8%20%EC%9A%A9%EC%82%B0%EA%B5%AC%20%ED%9B%84%EC%95%94%EB%A1%9C49%EA%B8%B8%207-6" target="_blank" rel="noopener">지도에서 보기</a>
+      </li>
+    </ol>
+  </section>
+
+  <section>
     <h2>Timetable</h2>
     <ol class="tl">
-      <li><time>~ 10:00</time><b>소월타워 집합</b></li>
+      <li><time>~ 10:00</time><b>남산 소월타워 집합</b></li>
       <li><time>10:00 – 12:00</time><b>꽃시장 투어</b></li>
       <li><time>12:00 – 14:00</time><b>후암별장 도착 · 점심 (중식 배달)</b></li>
       <li class="key-row"><time>14:00 – 15:30</time><b>꽃다발 만들기 원데이 클래스</b></li>
@@ -317,28 +416,10 @@
     </ol>
   </section>
 
-  <section>
-    <h2>Program</h2>
-    <p class="lead">16:30부터 5명씩 3개 팀으로 진행합니다.</p>
-    <ol class="acts">
-      <li><div><h3>레크레이션</h3><p>팀 대항으로 몸부터 풀겠습니다.</p></div></li>
-      <li><div><h3>air 모의고사</h3>
-        <p>팀별로 배점을 직접 걸고 푸는 방식입니다.</p>
-        <span class="eg">예 &nbsp;가입 후 14일 이내 재가입 시, 이 고객의 보너스팩 정책은?</span></div></li>
-      <li><div><h3>익명 안건 라이브</h3>
-        <p>익명으로 받은 안건을 같이 논의합니다.</p>
-        <span class="eg">예 &nbsp;27년도 우리 팀의 목표는?</span></div></li>
-    </ol>
-    <div class="teaser">
-      <p>오늘 팀 점수는 저녁 자리까지 이어집니다.</p>
-      <p>어떻게 이어지는지는 현장에서 공개할게요. 열심히 하시는 게 이득입니다.</p>
-    </div>
-  </section>
-
   <section class="ask">
     <h2>Before we meet</h2>
     <p>평소 묻기 애매했던 것, 팀에 바라는 것 무엇이든 좋습니다. 작성자는 끝까지 비공개이며, 여기 모인 이야기로 익명 안건 라이브를 진행합니다.</p>
-    <a class="btn" href="#" target="_blank" rel="noopener">익명으로 안건 남기기</a>
+    <a class="btn" href="https://forms.gle/QH7HLeoVVVMGXZzj9" target="_blank" rel="noopener">익명으로 안건 남기기</a>
     <p class="due">9월 28일(월)까지 부탁드립니다</p>
   </section>
 
