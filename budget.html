@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 air 사업팀 Can Meeting — 예산</title>
+<meta name="description" content="2026 air 사업팀 Can Meeting 예산 기획안 — 재원, 집행 계획, 검토 사항.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<style>
+:root{
+  --paper:#FAF5EC; --ink:#241B18; --crimson:#8C1C2B; --rose:#B8465C;
+  --stem:#5E6B4C; --clay:#A8763F; --rule:#E3D8C6; --muted:#7C6F63;
+  --serif:"Gowun Batang", serif;
+  --sans:"Pretendard Variable", Pretendard, -apple-system, system-ui, sans-serif;
+}
+*{box-sizing:border-box;}
+body{ margin:0; background:var(--paper); font-family:var(--sans); }
+
+.cmb-back{ display:block; max-width:46rem; margin:0 auto; padding:2rem 1.5rem 0;
+  font-family:var(--sans); font-size:.8125rem; color:var(--muted); text-decoration:none;
+  letter-spacing:.02em; }
+.cmb-back:hover{ color:var(--crimson); }
+.cmb-back:focus-visible{ outline:2px solid var(--crimson); outline-offset:3px; }
+
+.cmb { font-family:var(--sans); color:var(--ink); max-width:46rem; margin:0 auto;
+  padding:0 1.5rem 6rem; font-size:.9375rem; line-height:1.7;
+  font-variant-numeric:tabular-nums; -webkit-font-smoothing:antialiased; }
+
+.cmb-head { text-align:center; padding:2.5rem 0 3rem; }
+.cmb-head h1 { font-family:var(--serif); font-size:clamp(1.75rem,6vw,2.5rem);
+  font-weight:400; letter-spacing:.02em; margin:0 0 .625rem; }
+.cmb-head p { margin:0; color:var(--muted); font-size:.8125rem; letter-spacing:.04em; }
+
+.cmb-hero { border-top:1px solid var(--ink); padding-top:1.75rem; margin-bottom:4rem; }
+.cmb-hero-fig { display:flex; align-items:baseline; gap:.75rem; flex-wrap:wrap; margin-bottom:.25rem; }
+.cmb-hero-fig b { font-family:var(--serif); font-size:clamp(2.25rem,9vw,3.375rem);
+  font-weight:400; line-height:1; letter-spacing:-.01em; }
+.cmb-hero-fig span { font-size:.875rem; color:var(--muted); }
+.cmb-hero-sub { font-size:.875rem; color:var(--muted); margin:0 0 1.5rem; }
+
+.cmb-bar { display:flex; height:2.25rem; overflow:hidden; border:1px solid var(--rule); }
+.cmb-bar i { display:block; height:100%; }
+.cmb-bar i:nth-child(1){ background:var(--rose); }
+.cmb-bar i:nth-child(2){ background:var(--crimson); }
+.cmb-bar i:nth-child(3){ background:var(--stem); }
+.cmb-bar i:nth-child(4){ background:var(--clay); }
+.cmb-bar i:nth-child(5){ background:repeating-linear-gradient(135deg,var(--rule) 0 3px,transparent 3px 6px); }
+
+.cmb-legend { list-style:none; margin:1rem 0 0; padding:0; display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr)); gap:.375rem 1.25rem;
+  font-size:.8125rem; }
+.cmb-legend li { display:flex; align-items:baseline; gap:.5rem; }
+.cmb-legend em { width:.5rem; height:.5rem; flex:none; margin-top:.375rem; }
+.cmb-legend li:nth-child(1) em{ background:var(--rose); }
+.cmb-legend li:nth-child(2) em{ background:var(--crimson); }
+.cmb-legend li:nth-child(3) em{ background:var(--stem); }
+.cmb-legend li:nth-child(4) em{ background:var(--clay); }
+.cmb-legend li:nth-child(5) em{ background:repeating-linear-gradient(135deg,var(--rule) 0 3px,transparent 3px 6px); outline:1px solid var(--rule); }
+.cmb-legend b { margin-left:auto; font-weight:400; color:var(--muted); }
+
+.cmb-sec { margin-bottom:3.5rem; }
+.cmb-sec > h2 { font-family:var(--serif); font-size:1.25rem; font-weight:400;
+  margin:0 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--ink); }
+
+.cmb table { width:100%; border-collapse:collapse; }
+.cmb th, .cmb td { text-align:left; padding:.6875rem .5rem; border-bottom:1px solid var(--rule);
+  vertical-align:baseline; }
+.cmb th { font-size:.75rem; font-weight:500; color:var(--muted); letter-spacing:.04em;
+  border-bottom:1px solid var(--rule); padding-top:0; }
+.cmb th:first-child, .cmb td:first-child { padding-left:0; }
+.cmb th:last-child, .cmb td:last-child { padding-right:0; }
+.cmb .n { text-align:right; white-space:nowrap; }
+.cmb .amt { font-weight:600; }
+.cmb .note { color:var(--muted); font-size:.8125rem; }
+.cmb tr.tot td { border-bottom:none; border-top:1px solid var(--ink);
+  font-weight:700; padding-top:.8125rem; }
+.cmb tr.tot td:first-child { font-family:var(--serif); font-weight:400; font-size:1rem; }
+.cmb-sub { display:none; }
+.cmb figcaption { font-size:.8125rem; color:var(--muted); margin-top:.75rem; }
+.cmb figure { margin:0; }
+
+.cmb-notes { list-style:none; margin:0; padding:0; }
+.cmb-notes li { position:relative; padding-left:1.125rem; margin-bottom:.875rem;
+  color:#3D302B; }
+.cmb-notes li::before { content:""; position:absolute; left:0; top:.6875rem;
+  width:.4375rem; height:1px; background:var(--crimson); }
+.cmb-notes strong { font-weight:600; }
+
+a:focus-visible{ outline:2px solid var(--crimson); outline-offset:3px; }
+
+@media (max-width:34rem){
+  .cmb .col-unit, .cmb .col-qty, .cmb .col-note { display:none; }
+  .cmb-sub { display:block; font-size:.75rem; color:var(--muted); margin-top:.125rem; }
+  .cmb-legend b { margin-left:.5rem; }
+}
+</style>
+</head>
+<body>
+
+<a class="cmb-back" href="./">← 초대장으로 돌아가기</a>
+
+<section class="cmb">
+
+  <div class="cmb-head">
+    <h1>예산 기획안</h1>
+    <p>2026.10.01(목) &nbsp;|&nbsp; 후암별장 &nbsp;|&nbsp; 16명 기준</p>
+  </div>
+
+  <div class="cmb-hero">
+    <div class="cmb-hero-fig">
+      <b>2,500,000원</b>
+      <span>집행 계획</span>
+    </div>
+    <p class="cmb-hero-sub">가용 예산 2,506,000원 중 99.8%를 사용하며, 잔액은 6,000원입니다.</p>
+
+    <div class="cmb-bar" role="img"
+         aria-label="가용 예산 2,506,000원의 구성: 식음 1,200,000원, 꽃 클래스 800,000원, 대관비 350,000원, 기타 150,000원, 잔액 6,000원">
+      <i style="width:47.88%"></i>
+      <i style="width:31.92%"></i>
+      <i style="width:13.97%"></i>
+      <i style="width:5.99%"></i>
+      <i style="width:0.24%"></i>
+    </div>
+
+    <ul class="cmb-legend">
+      <li><em></em>식음 <b>1,200,000</b></li>
+      <li><em></em>꽃 클래스 <b>800,000</b></li>
+      <li><em></em>대관비 <b>350,000</b></li>
+      <li><em></em>기타 <b>150,000</b></li>
+      <li><em></em>잔액 <b>6,000</b></li>
+    </ul>
+  </div>
+
+  <div class="cmb-sec">
+    <h2>예산 재원</h2>
+    <figure>
+      <table>
+        <thead>
+          <tr><th scope="col">구분</th><th scope="col" class="n">금액</th><th scope="col" class="col-note">비고</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>9월 캔미팅 잔여</td><td class="n">1,466,000</td><td class="note col-note">10월 잔여에 이월 반영</td></tr>
+          <tr><td>10월 캔미팅 잔여 (추정)</td><td class="n">2,106,000</td><td class="note col-note">9월 이월분 포함 누적</td></tr>
+          <tr><td>추가 예산 (동비, 추정)</td><td class="n">400,000</td><td class="note col-note">별도 재원</td></tr>
+          <tr class="tot"><td>가용 예산</td><td class="n">2,506,000</td><td class="col-note">10월 잔여 + 동비</td></tr>
+        </tbody>
+      </table>
+      <figcaption>10월 잔여는 9월 잔여 이월분을 포함한 누적 금액입니다. 9월과 10월 잔여를 각각 더해 합산하지 않도록 주의해 주세요.</figcaption>
+    </figure>
+  </div>
+
+  <div class="cmb-sec">
+    <h2>집행 계획</h2>
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">항목</th>
+            <th scope="col" class="n col-unit">단가</th>
+            <th scope="col" class="n col-qty">수량</th>
+            <th scope="col" class="n">금액</th>
+            <th scope="col" class="col-note">비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>꽃 클래스<span class="cmb-sub">50,000 × 16</span></td>
+            <td class="n col-unit">50,000</td><td class="n col-qty">16</td>
+            <td class="n amt">800,000</td>
+            <td class="note col-note">꽃 구매 30,000 + 꽃꽂이 20,000</td>
+          </tr>
+          <tr>
+            <td>저녁<span class="cmb-sub">35,000 × 16</span></td>
+            <td class="n col-unit">35,000</td><td class="n col-qty">16</td>
+            <td class="n amt">560,000</td>
+            <td class="note col-note">BBQ 뒤풀이</td>
+          </tr>
+          <tr>
+            <td>대관비<span class="cmb-sub">350,000 × 1</span></td>
+            <td class="n col-unit">350,000</td><td class="n col-qty">1</td>
+            <td class="n amt">350,000</td>
+            <td class="note col-note">후암별장, BBQ 포함가</td>
+          </tr>
+          <tr>
+            <td>점심<span class="cmb-sub">20,000 × 16</span></td>
+            <td class="n col-unit">20,000</td><td class="n col-qty">16</td>
+            <td class="n amt">320,000</td>
+            <td class="note col-note">중식 배달</td>
+          </tr>
+          <tr>
+            <td>커피<span class="cmb-sub">10,000 × 16</span></td>
+            <td class="n col-unit">10,000</td><td class="n col-qty">16</td>
+            <td class="n amt">160,000</td>
+            <td class="note col-note"></td>
+          </tr>
+          <tr>
+            <td>간식<span class="cmb-sub">10,000 × 16</span></td>
+            <td class="n col-unit">10,000</td><td class="n col-qty">16</td>
+            <td class="n amt">160,000</td>
+            <td class="note col-note"></td>
+          </tr>
+          <tr>
+            <td>기타<span class="cmb-sub">150,000 × 1</span></td>
+            <td class="n col-unit">150,000</td><td class="n col-qty">1</td>
+            <td class="n amt">150,000</td>
+            <td class="note col-note">택시비, 소모품</td>
+          </tr>
+          <tr class="tot">
+            <td>집행 총계</td>
+            <td class="n col-unit"></td><td class="n col-qty"></td>
+            <td class="n">2,500,000</td>
+            <td class="col-note">1인당 156,250원</td>
+          </tr>
+        </tbody>
+      </table>
+      <figcaption>1인당 156,250원. 인원이 1명 늘거나 줄면 총액이 75,000원 변동하며, 대관비와 기타는 인원과 무관한 고정비입니다.</figcaption>
+    </figure>
+  </div>
+
+  <div class="cmb-sec">
+    <h2>검토 사항</h2>
+    <ul class="cmb-notes">
+      <li>대관비는 기본 견적 <strong>290,000원</strong>, 바베큐 추가 시 <strong>350,000원</strong>입니다. 위 계획은 바베큐 포함 기준이며, 미진행 시 60,000원이 절감되어 잔액은 66,000원이 됩니다.</li>
+      <li>저녁 비용은 16명 전원 참석을 최대치로 가정해 산정했습니다. 실제 참석 인원이 줄면 그만큼 잔액이 늘어납니다.</li>
+      <li>기타 150,000원은 택시비와 일회용 접시 등 현장 소모품 구매에 사용합니다.</li>
+      <li>잔액이 6,000원으로 예비비 여력이 거의 없습니다. 현장 추가 지출에 대비하려면 바베큐 제외 또는 동비 증액 검토가 필요합니다.</li>
+      <li>10월 잔여 예산과 동비는 추정치입니다. 확정되는 시점에 본 계획을 다시 맞춰볼 예정입니다.</li>
+    </ul>
+  </div>
+
+</section>
+
+</body>
+</html>
